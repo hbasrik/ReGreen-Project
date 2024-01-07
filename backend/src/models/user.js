@@ -35,6 +35,12 @@ const userSchema = new mongoose.Schema({
             if (!/[!@#$%^&*(),.?":{}|<>]/.test(value)) {
                 throw new Error('Password must contain at least one special character');
             }
+            if (!/[a-z]/.test(value)) {
+            throw new Error('Password must contain at least one lowercase letter');
+            }
+            if (!/[A-Z]/.test(value)) {
+                throw new Error('Password must contain at least one uppercase letter');
+            }
             if (value.length < 8) {
                 throw new Error('Password must be at least 8 characters long');
             }
